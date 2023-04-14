@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClubeDaLeitura.Compartilhamento;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,11 +7,9 @@ using System.Threading.Tasks;
 
 namespace ClubeDaLeitura.MóduloAmigos
 {
-    public class TelaAmigos
+    public class TelaAmigos : RepositorioMae
     {
-        List<Amigos> listaamigos = new List<Amigos>();
-        RepositorioAmigos repositorio = new RepositorioAmigos();
-        public void MenuAmigos()
+        public void MenuAmigos(RepositorioAmigos amigos)
         {
             bool menuamigos = true;
 
@@ -23,19 +22,19 @@ namespace ClubeDaLeitura.MóduloAmigos
 
                 if (escolha == "1")
                 {
-                    repositorio.CadastrarAmigos(listaamigos);
+                    amigos.CadastrarAmigos();
                 }
                 else if (escolha == "2")
                 {
-                    repositorio.EditarAmigos(listaamigos);
+                    amigos.EditarAmigos();
                 }
                 else if (escolha == "3")
                 {
-                    repositorio.ExcluirAmigos(listaamigos);
+                    amigos.ExcluirAmigos();
                 }
                 else if (escolha == "4")
                 {
-                    repositorio.VerificarAmigos(listaamigos);
+                    VerificarAmigos();
                 }
                 else if (escolha == "S")
                 {
@@ -45,6 +44,14 @@ namespace ClubeDaLeitura.MóduloAmigos
                 {
                     Console.WriteLine("Resposta inválida, tente novamente");
                 }
+            }
+        }
+        public void VerificarAmigos()
+        {
+            Console.WriteLine("ID - Nome - Nome do Responsável - Numero de Telefone - Endereço");
+            foreach (Amigos item in listaRegistros)
+            {
+                Console.Write($"{item.ID}  {item.nome}  {item.nomeresponsavel}  {item.numerotelefone}  {item.endereco}\n");
             }
         }
     }

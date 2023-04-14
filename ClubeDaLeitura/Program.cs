@@ -5,7 +5,7 @@ using ClubeDaLeitura.MóduloRevistas;
 
 namespace ClubeDaLeitura
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -16,6 +16,14 @@ namespace ClubeDaLeitura
             TelaRevistas revistas = new TelaRevistas();
 
             TelaCaixas caixas = new TelaCaixas();
+
+            RepositorioAmigos repositorioamigos = new RepositorioAmigos();
+
+            RepositorioEmprestimos repositorioemprestimos = new RepositorioEmprestimos();
+
+            RepositorioRevistas repositoriorevistas = new RepositorioRevistas();
+
+            RepositorioCaixas repositoriocaixas = new RepositorioCaixas();
 
             bool menuservico = true;
             while (menuservico == true)
@@ -28,19 +36,19 @@ namespace ClubeDaLeitura
 
                 if (escolha == "1")
                 {
-                    amigos.MenuAmigos();
+                    amigos.MenuAmigos(repositorioamigos);
                 }
                 else if (escolha == "2")
                 {
-                    emprestimos.MenuEmprestimos();
+                    emprestimos.MenuEmprestimos(repositorioemprestimos);
                 }
                 else if (escolha == "3")
                 {
-                    revistas.MenuRevistas();
+                    revistas.MenuRevistas(repositoriorevistas);
                 }
                 else if (escolha == "4")
                 {
-                    caixas.MenuCaixas();
+                    caixas.MenuCaixas(repositoriocaixas);
                 }
                 else if (escolha == "S")
                 {

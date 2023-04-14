@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ClubeDaLeitura.Compartilhamento;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,11 +8,9 @@ using System.Threading.Tasks;
 
 namespace ClubeDaLeitura.MóduloCaixas
 {
-    public class TelaCaixas
+    public class TelaCaixas : RepositorioMae
     {
-        RepositorioCaixas repositorio = new RepositorioCaixas();
-        List<Caixas> lista = new List<Caixas>();
-        public void MenuCaixas()
+        public void MenuCaixas(RepositorioCaixas caixas)
         {           
             bool menucaixas = true;
 
@@ -24,19 +24,19 @@ namespace ClubeDaLeitura.MóduloCaixas
 
                 if (escolha == "1")
                 {
-                    repositorio.CadastrarCaixas(lista);
+                    caixas.CadastrarCaixas();
                 }
                 else if (escolha == "2")
                 {
-                    repositorio.EditarCaixas(lista);
+                    caixas.EditarCaixas();
                 }
                 else if (escolha == "3")
                 {
-                    repositorio.ExcluirCaixas(lista);
+                    caixas.ExcluirCaixas();
                 }
                 else if (escolha == "4")
                 {
-                    repositorio.VerificarCaixas(lista);
+                    VerificarCaixas();
                 }
                 else if (escolha == "S")
                 {
@@ -46,6 +46,18 @@ namespace ClubeDaLeitura.MóduloCaixas
                 {
                     Console.WriteLine("Resposta inválida, tente novamente");
                 }
+            }
+        }
+
+        public void VerificarCaixas()
+        {
+            Console.WriteLine();
+
+            Console.WriteLine("ID - Cor da Caixa - Etiqueta");
+
+            foreach (Caixas item in listaRegistros)
+            {
+                Console.Write($"{item.ID} {item.corcaixa} {item.etiqueta}\n");
             }
         }
     }

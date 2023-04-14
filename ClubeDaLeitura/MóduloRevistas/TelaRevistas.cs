@@ -1,4 +1,5 @@
-﻿using ClubeDaLeitura.MóduloCaixas;
+﻿using ClubeDaLeitura.Compartilhamento;
+using ClubeDaLeitura.MóduloCaixas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,38 +8,34 @@ using System.Threading.Tasks;
 
 namespace ClubeDaLeitura.MóduloRevistas
 {
-    public class TelaRevistas
+    public class TelaRevistas : RepositorioMae
     {
-        List<Revistas> listarevistas = new List<Revistas>();
-        RepositorioRevistas repositorio = new RepositorioRevistas();
-        List<Caixas> listacaixa = new List<Caixas>();
-        public void MenuRevistas()
+        public void MenuRevistas(RepositorioRevistas revista)
         { 
             bool menurevistas = true;
 
             while (menurevistas)
             {
-
-                Console.WriteLine("QQ C quer");
+                Console.WriteLine("                         QQ C quer");
                 Console.WriteLine("(1) Cadastrar - (2) Editar - (3) Excluir - (4) Verificar - (S) Sair");
 
                 string escolha = Console.ReadLine().ToUpper();
 
                 if (escolha == "1")
                 {
-                    repositorio.CadastrarRevistas(listarevistas);
+                    revista.CadastrarRevistas();
                 }
                 else if (escolha == "2")
                 {
-                    repositorio.EditarRevistas(listarevistas, listacaixa);
+                    revista.EditarRevistas();
                 }
                 else if (escolha == "3")
                 {
-                    repositorio.ExcluirRevistas(listarevistas);
+                    revista.ExcluirRevistas();
                 }
                 else if (escolha == "4")
                 {
-                    repositorio.VerificarRevistas(listarevistas);
+                    VerificarRevistas();
                 }
                 else if (escolha == "S")
                 {
@@ -48,6 +45,14 @@ namespace ClubeDaLeitura.MóduloRevistas
                 {
                     Console.WriteLine("Resposta inválida, tente novamente");
                 }
+            }
+        }
+        public void VerificarRevistas()
+        {
+            Console.WriteLine("ID  Coleção  Edição  Ano  CaixaID");
+            foreach (Revistas item in listaRegistros)
+            {
+                Console.Write($"{item.ID}  {item.colecao}  {item.edicao}  {item.ano}  ");//{item.caixa}
             }
         }
     }

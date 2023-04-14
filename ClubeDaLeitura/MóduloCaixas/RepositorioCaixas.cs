@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClubeDaLeitura.Compartilhamento;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace ClubeDaLeitura.MóduloCaixas
 {
-    public class RepositorioCaixas
+    public class RepositorioCaixas : RepositorioMae
     {
-        public void CadastrarCaixas(List<Caixas> ListaCaixas)
+        public void CadastrarCaixas()
         {
             Caixas caixa = new Caixas();
 
@@ -18,22 +19,22 @@ namespace ClubeDaLeitura.MóduloCaixas
             Console.WriteLine("Qual a etiqueta da caixa: ");
             caixa.etiqueta = Console.ReadLine();
 
-            caixa.ID = ListaCaixas.Count;
+            caixa.ID = listaRegistros.Count;
 
-            ListaCaixas.Add(caixa);
+            listaRegistros.Add(caixa);
 
             Console.WriteLine("Cadastro feito com sucesso.");
         }
-
-        public void EditarCaixas(List<Caixas> ListaCaixas)
+        public void EditarCaixas()
         {
             Caixas caixa = new Caixas();
 
             Console.Write("Qual ID gostaria de Editar: ");
             caixa.remove = Convert.ToInt32(Console.ReadLine());
 
-            int index = ListaCaixas.FindIndex(item => caixa.remove == item.ID);
-            ListaCaixas.RemoveAt(index);
+            caixa = SelecionarPorID(caixa.remove);
+
+            listaRegistros.Remove(caixa);
 
             Console.Write("Qual a cor da caixa: ");
             caixa.corcaixa = Console.ReadLine();
@@ -41,40 +42,37 @@ namespace ClubeDaLeitura.MóduloCaixas
             Console.Write("Qual a etiqueta da caixa: ");
             caixa.etiqueta = Console.ReadLine();
 
-           caixa.ID = ListaCaixas.Count;
+           caixa.ID = listaRegistros.Count;
 
             caixa.ID--;
 
-            ListaCaixas.Add(caixa);
+            listaRegistros.Add(caixa);
 
             Console.WriteLine("Edição feita com sucesso.");
         }
-
-        public void ExcluirCaixas(List<Caixas> ListaCaixas)
+        public void ExcluirCaixas()
         {
             Caixas caixa = new Caixas();
 
             Console.Write("Qual ID gostaria de Excluir: ");
             caixa.remove = Convert.ToInt32(Console.ReadLine());
 
-            int index = caixa.teste.FindIndex(item => caixa.remove == item.ID);
-            caixa.teste.RemoveAt(index);
+            caixa = SelecionarPorID(caixa.remove);
+
+            listaRegistros.Remove(caixa);
 
             Console.WriteLine("Exclusão feita com sucesso.");
         }
-
-        public void VerificarCaixas(List<Caixas> ListaCaixas)
+        public Caixas SelecionarPorID(int id)
         {
-            Console.WriteLine();
-
-            Caixas caixa = new Caixas();
-
-            Console.WriteLine("ID - Cor da Caixa - Etiqueta");
-
-            foreach (Caixas item in ListaCaixas)
+            foreach (Caixas c in listaRegistros)
             {
-                Console.Write($"{item.ID} {item.corcaixa} {item.etiqueta}\n");
+                if (c.ID == id)
+                {
+                    return c;
+                }
             }
+            return null;
         }
     }
 }

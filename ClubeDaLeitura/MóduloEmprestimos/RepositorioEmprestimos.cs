@@ -1,4 +1,5 @@
-﻿using ClubeDaLeitura.MóduloAmigos;
+﻿using ClubeDaLeitura.Compartilhamento;
+using ClubeDaLeitura.MóduloAmigos;
 using ClubeDaLeitura.MóduloRevistas;
 using System;
 using System.Collections.Generic;
@@ -8,10 +9,8 @@ using System.Threading.Tasks;
 
 namespace ClubeDaLeitura.MóduloEmprestimos
 {
-    public class RepositorioEmprestimos
+    public class RepositorioEmprestimos : RepositorioMae
     {
-        Revistas revistas = new Revistas();
-        Amigos amigos = new Amigos();
         public void CadastrarEmprestimos()
         {
             
@@ -24,9 +23,16 @@ namespace ClubeDaLeitura.MóduloEmprestimos
         {
 
         }
-        public void VerificarEmprestimos()
+        public Emprestimos SelecionarPorID(int id)
         {
-
+            foreach (Emprestimos e in listaRegistros)
+            {
+                if (e.ID == id)
+                {
+                    return e;
+                }
+            }
+            return null;
         }
     }
 }
