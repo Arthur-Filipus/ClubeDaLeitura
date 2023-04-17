@@ -19,7 +19,9 @@ namespace ClubeDaLeitura.MóduloCaixas
             Console.WriteLine("Qual a etiqueta da caixa: ");
             caixa.etiqueta = Console.ReadLine();
 
-            caixa.ID = listaRegistros.Count;
+            caixa.IDcaixa = listaRegistros.Count;
+
+            caixa.IDcaixa++;
 
             listaRegistros.Add(caixa);
 
@@ -42,9 +44,9 @@ namespace ClubeDaLeitura.MóduloCaixas
             Console.Write("Qual a etiqueta da caixa: ");
             caixa.etiqueta = Console.ReadLine();
 
-           caixa.ID = listaRegistros.Count;
+           caixa.IDcaixa = listaRegistros.Count;
 
-            caixa.ID--;
+            caixa.IDcaixa++;
 
             listaRegistros.Add(caixa);
 
@@ -67,7 +69,7 @@ namespace ClubeDaLeitura.MóduloCaixas
         {
             foreach (Caixas c in listaRegistros)
             {
-                if (c.ID == id)
+                if (c.IDcaixa == id)
                 {
                     return c;
                 }

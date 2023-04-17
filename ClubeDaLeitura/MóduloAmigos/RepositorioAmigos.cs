@@ -15,7 +15,7 @@ namespace ClubeDaLeitura.MóduloAmigos
             Amigos amigos = new Amigos();
 
             Console.Write("Digita teu nome: ");
-            amigos.nome = Console.ReadLine();
+            amigos.nome = Console.ReadLine().ToUpper();
 
             Console.Write("Digita o nome do teu responsável: ");
             amigos.nomeresponsavel = Console.ReadLine();
@@ -26,18 +26,13 @@ namespace ClubeDaLeitura.MóduloAmigos
             Console.Write("Digita teu endereço: ");
             amigos.endereco = Console.ReadLine();
 
-            amigos.ID = listaRegistros.Count;
+            amigos.IDamigos = listaRegistros.Count;
+            amigos.IDamigos++;
 
             listaRegistros.Add(amigos);
 
             Console.WriteLine("Cadastro feito com sucesso.");
             Console.WriteLine();
-
-            Console.WriteLine("ID - Nome - Nome do Responsável - Numero de Telefone - Endereço");
-            foreach (Amigos item in listaRegistros)
-            {
-                Console.Write($"{item.ID}  {item.nome}  {item.nomeresponsavel}  {item.numerotelefone}  {item.endereco}\n");
-            }
         }
         public void EditarAmigos()
         {
@@ -62,9 +57,9 @@ namespace ClubeDaLeitura.MóduloAmigos
             Console.Write("Digita teu endereço: ");
             amigos.endereco = Console.ReadLine();
 
-            amigos.ID = listaRegistros.Count;
+            amigos.IDamigos = listaRegistros.Count;
 
-            amigos.ID--;
+            amigos.IDamigos++;
 
             listaRegistros.Add(amigos);
 
@@ -81,13 +76,17 @@ namespace ClubeDaLeitura.MóduloAmigos
 
             listaRegistros.Remove(amigos);
 
+            amigos.IDamigos++;
+
+            listaRegistros.Add(amigos);
+
             Console.WriteLine("Exclusão feita com sucesso.");
         }
         public Amigos SelecionarPorID(int id)
         {
             foreach (Amigos a in listaRegistros)
             {
-                if (a.ID == id)
+                if (a.IDamigos == id)
                 {
                     return a;
                 }

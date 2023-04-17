@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClubeDaLeitura.MóduloCaixas;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,10 +12,9 @@ namespace ClubeDaLeitura.MóduloRevistas
         public string colecao { get; set; }
         public string edicao { get; set; }
         public string ano { get; set; }
-        public int ID { get; set; }
+        public int IDrevistas { get; set; } = 1;
         public int remove { get; set; }
-        public int caixaescolhida { get; set; }
-        public int IdCaixaEscolhida { get; set; }
+        public Caixas caixaescolhida { get; set; }
         public bool achou { get; set; }
     }
 }

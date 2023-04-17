@@ -12,6 +12,9 @@ namespace ClubeDaLeitura.MóduloEmprestimos
     {
         public string datasaida { get; set; }
         public string datadevolucao { get; set; }
-        public int ID { get; set; }
+        public int IDemprestimos { get; set; } = 1;
+        public int remove { get; set; }
+        public Amigos amigo { get; set; }
+        public Revistas IDrevista { get; set; }
     }
 }

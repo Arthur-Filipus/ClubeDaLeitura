@@ -10,7 +10,7 @@ namespace ClubeDaLeitura.MóduloCaixas
     {
         public string corcaixa { get; set; }
         public string etiqueta { get; set; }
-        public int ID { get; set; }
+        public int IDcaixa { get; set; } = 1;
         public int remove { get; set; }
     }
 }

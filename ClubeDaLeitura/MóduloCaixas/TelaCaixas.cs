@@ -10,6 +10,7 @@ namespace ClubeDaLeitura.MóduloCaixas
 {
     public class TelaCaixas : RepositorioMae
     {
+        public RepositorioCaixas repositorio = null;
         public void MenuCaixas(RepositorioCaixas caixas)
         {           
             bool menucaixas = true;
@@ -48,16 +49,15 @@ namespace ClubeDaLeitura.MóduloCaixas
                 }
             }
         }
-
         public void VerificarCaixas()
         {
             Console.WriteLine();
 
             Console.WriteLine("ID - Cor da Caixa - Etiqueta");
 
-            foreach (Caixas item in listaRegistros)
+            foreach (Caixas item in repositorio.listaRegistros)
             {
-                Console.Write($"{item.ID} {item.corcaixa} {item.etiqueta}\n");
+                Console.Write($"{item.IDcaixa} {item.corcaixa} {item.etiqueta}\n");
             }
         }
     }

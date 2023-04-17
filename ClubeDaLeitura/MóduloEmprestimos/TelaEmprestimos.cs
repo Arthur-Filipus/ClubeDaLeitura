@@ -1,4 +1,5 @@
 ﻿using ClubeDaLeitura.Compartilhamento;
+using ClubeDaLeitura.MóduloCaixas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,14 +10,15 @@ namespace ClubeDaLeitura.MóduloEmprestimos
 {
     public class TelaEmprestimos : RepositorioMae
     {
+        public RepositorioEmprestimos repositorio = null;
         public void MenuEmprestimos(RepositorioEmprestimos emprestimos)
         {
             bool menuemprestimo = true;
 
             while (menuemprestimo)
             {
-                Console.WriteLine("                            QQ C quer");
-                Console.WriteLine("(1) Cadastrar - (2) Editar - (3) Excluir - (4) Verificar - (S) Sair");
+                Console.WriteLine("                                        QQ C quer");
+                Console.WriteLine("(1) Cadastrar - (2) Editar - (3) Devolução - (4) Verificar - (5) Emprestimos em Aberto - (S) Sair");
 
                 string escolha = Console.ReadLine().ToUpper();
 
@@ -30,11 +32,15 @@ namespace ClubeDaLeitura.MóduloEmprestimos
                 }
                 else if (escolha == "3")
                 {
-                    emprestimos.ExcluirEmprestimos();
+                    emprestimos.DevolverRevista();
                 }
                 else if (escolha == "4")
                 {
                     VerificarEmprestimos();
+                }
+                else if (escolha == "5")
+                {
+                    VerificarEmprestimosEmAberto();
                 }
                 else if (escolha == "S")
                 {
@@ -47,6 +53,17 @@ namespace ClubeDaLeitura.MóduloEmprestimos
             }
         }
         public void VerificarEmprestimos()
+        {
+            Console.WriteLine();
+
+            Console.WriteLine("ID - Amigo - IDRevista - Data de empréstimo - Data de Devolução");
+
+            foreach (Emprestimos item in repositorio.listaRegistros)
+            {
+                Console.Write($"{item.IDemprestimos} {item.amigo} {item.IDrevista} {item.datasaida} {item.datadevolucao}\n");
+            }
+        }
+        public void VerificarEmprestimosEmAberto()
         {
 
         }

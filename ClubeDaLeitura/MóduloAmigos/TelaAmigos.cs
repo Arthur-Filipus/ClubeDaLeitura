@@ -9,6 +9,7 @@ namespace ClubeDaLeitura.MóduloAmigos
 {
     public class TelaAmigos : RepositorioMae
     {
+        public RepositorioAmigos repositorio = null;
         public void MenuAmigos(RepositorioAmigos amigos)
         {
             bool menuamigos = true;
@@ -49,10 +50,11 @@ namespace ClubeDaLeitura.MóduloAmigos
         public void VerificarAmigos()
         {
             Console.WriteLine("ID - Nome - Nome do Responsável - Numero de Telefone - Endereço");
-            foreach (Amigos item in listaRegistros)
+            foreach (Amigos item in repositorio.listaRegistros)
             {
-                Console.Write($"{item.ID}  {item.nome}  {item.nomeresponsavel}  {item.numerotelefone}  {item.endereco}\n");
+                Console.Write($"{item.IDamigos}  {item.nome}  {item.nomeresponsavel}  {item.numerotelefone}  {item.endereco}\n");
             }
+            Console.WriteLine();
         }
     }
 }

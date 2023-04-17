@@ -10,6 +10,7 @@ namespace ClubeDaLeitura.MóduloRevistas
 {
     public class TelaRevistas : RepositorioMae
     {
+        public RepositorioRevistas repositorio = null;
         public void MenuRevistas(RepositorioRevistas revista)
         { 
             bool menurevistas = true;
@@ -50,9 +51,9 @@ namespace ClubeDaLeitura.MóduloRevistas
         public void VerificarRevistas()
         {
             Console.WriteLine("ID  Coleção  Edição  Ano  CaixaID");
-            foreach (Revistas item in listaRegistros)
+            foreach (Revistas item in repositorio.listaRegistros)
             {
-                Console.Write($"{item.ID}  {item.colecao}  {item.edicao}  {item.ano}  ");//{item.caixa}
+                Console.Write($"{item.IDrevistas}  {item.colecao}  {item.edicao}  {item.ano}  {item.caixaescolhida.IDcaixa}\n");
             }
         }
     }

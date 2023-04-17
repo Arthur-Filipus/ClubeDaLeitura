@@ -25,6 +25,24 @@ namespace ClubeDaLeitura
 
             RepositorioCaixas repositoriocaixas = new RepositorioCaixas();
 
+            repositoriorevistas.repositoriocaixas = repositoriocaixas;
+
+            repositoriorevistas.telacaixa = caixas;
+
+            caixas.repositorio = repositoriocaixas;
+
+            revistas.repositorio = repositoriorevistas;
+
+            amigos.repositorio = repositorioamigos;
+
+            repositorioemprestimos.telarevistas = revistas;
+
+            repositorioemprestimos.repositoriorevistas = repositoriorevistas;
+
+            repositorioemprestimos.repositorioamigos = repositorioamigos;
+
+            emprestimos.repositorio = repositorioemprestimos;
+
             bool menuservico = true;
             while (menuservico == true)
             {

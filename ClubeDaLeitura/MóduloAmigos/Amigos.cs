@@ -12,7 +12,7 @@ namespace ClubeDaLeitura.MóduloAmigos
         public string nomeresponsavel { get; set; }
         public string numerotelefone { get; set; }
         public string endereco { get; set; }
-        public int ID { get; set; }
+        public int IDamigos { get; set; } = 1;
         public int remove { get; set; }
     }
 }
