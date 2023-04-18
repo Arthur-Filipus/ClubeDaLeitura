@@ -16,7 +16,8 @@ namespace ClubeDaLeitura.MóduloAmigos
 
             while (menuamigos)
             {
-                Console.WriteLine("QQ ce quer");
+                Console.WriteLine("                            Menu Amigos");
+                Console.WriteLine("------------------------------------------------------------------");
                 Console.WriteLine("(1) Cadastro - (2) Editar - (3) Excluir - (4) Verificar - (S) Sair");
 
                 string escolha = Console.ReadLine().ToUpper();

@@ -17,7 +17,8 @@ namespace ClubeDaLeitura.MóduloCaixas
 
             while (menucaixas)
             {
-                Console.WriteLine("                 QQ ce quer");
+                Console.WriteLine("                            Menu Caixas");
+                Console.WriteLine("------------------------------------------------------------------");
                 Console.WriteLine("(1) Cadastro - (2) Editar - (3) Excluir - (4) Verificar - (S) Sair");
 
                 string escolha = Console.ReadLine().ToUpper();

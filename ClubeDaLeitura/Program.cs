@@ -46,7 +46,8 @@ namespace ClubeDaLeitura
             bool menuservico = true;
             while (menuservico == true)
             {
-
+                Console.WriteLine("                         Clube da Leitura");
+                Console.WriteLine("------------------------------------------------------------------------------");
                 Console.WriteLine("                   Digite o Serviço a ser utilizado:");
                 Console.WriteLine("(1) Amigos - (2) Emprestimos - (3) Revistas - (4) Caixas - (S) Fechar Programa");
 

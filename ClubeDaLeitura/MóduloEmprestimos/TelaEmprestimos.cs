@@ -60,7 +60,7 @@ namespace ClubeDaLeitura.MóduloEmprestimos
 
             foreach (Emprestimos item in repositorio.listaRegistros)
             {
-                Console.Write($"{item.IDemprestimos} {item.amigo} {item.IDrevista} {item.datasaida} {item.datadevolucao}\n");
+                Console.Write($"{item.IDemprestimos} {item.amigo.nome} {item.IDrevista.IDrevistas} {item.datasaida} {item.datadevolucao}\n");
             }
         }
         public void VerificarEmprestimosEmAberto()
